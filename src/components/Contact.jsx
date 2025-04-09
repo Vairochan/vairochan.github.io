@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
+const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +12,13 @@ const Contact = () => {
     message: ''
   });
   
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState({
+    submitted: false,
+    loading: false,
+    error: null
+  });
+  
+  const formRef = useRef();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,14 +27,22 @@ const Contact = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real implementation, you would send this data to your server
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' });
+    setStatus({ submitted: false, loading: true, error: null });
     
-    // Reset the submitted state after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000);
+    
+    emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        setStatus({ submitted: true, loading: false, error: null });
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Reset the submitted state after 5 seconds
+        setTimeout(() => setStatus(prev => ({ ...prev, submitted: false })), 5000);
+      })
+      .catch((error) => {
+        console.error('Failed to send email:', error.text);
+        setStatus({ submitted: false, loading: false, error: 'Failed to send email. Please try again.' });
+      });
   };
   
   return (
@@ -34,11 +53,7 @@ const Contact = () => {
           <div className="contact-info">
             <div className="contact-item">
               <i className="fas fa-envelope"></i>
-              <p>vairochan.sah@example.com</p>
-            </div>
-            <div className="contact-item">
-              <i className="fas fa-map-marker-alt"></i>
-              <p>Your Location</p>
+              <p>vairochansah2000@gmail.com</p>
             </div>
             <div className="contact-social">
               <a href="https://github.com/Vairochan" target="_blank" rel="noopener noreferrer">
@@ -58,13 +73,27 @@ const Contact = () => {
               </a>
             </div>
           </div>
+          
           <div className="contact-form">
-            {submitted ? (
+            {status.submitted ? (
               <div className="form-success">
                 <p>Thank you for your message! I'll get back to you soon.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form ref={formRef} onSubmit={handleSubmit}>
+                {status.error && (
+                  <div className="form-error" style={{ 
+                    backgroundColor: '#ffebee', 
+                    border: '1px solid #ef5350', 
+                    color: '#c62828', 
+                    padding: '10px', 
+                    borderRadius: '4px', 
+                    marginBottom: '20px' 
+                  }}>
+                    <p>{status.error}</p>
+                  </div>
+                )}
+                
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
@@ -98,7 +127,14 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Send Message</button>
+                <button 
+                  type="submit" 
+                  className={`btn btn-primary ${status.loading ? 'btn-loading' : ''}`}
+                  disabled={status.loading}
+                  style={status.loading ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
+                >
+                  {status.loading ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             )}
           </div>

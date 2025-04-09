@@ -3,24 +3,31 @@ import React from 'react';
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Backend API",
-      description: "A scalable RESTful API for an e-commerce platform built with Python and Django Rest Framework.",
-      technologies: ["Python", "Django", "PostgreSQL", "Docker"],
-      github: "https://github.com/Vairochan/ecommerce-api",
+      title: "FoodieGo - Food Delivery App",
+      description: "A Flutter-based food delivery app with Firebase integration, supporting user login, product listing, cart management, and order tracking.",
+      technologies: ["Flutter", "Firebase", "Provider", "Firestore"],
+      github: "https://github.com/Vairochan/flutter-food-delivery",
       live: null
     },
     {
-      title: "Task Management App",
-      description: "Android application for task management with cloud synchronization and offline capabilities.",
-      technologies: ["Kotlin", "Android", "Room Database", "Firebase"],
-      github: "https://github.com/Vairochan/task-manager",
+      title: "Book Store API",
+      description: "A backend API for an online bookstore built with Django and MongoDB. Features include user authentication, catalog management, and order processing. CI/CD handled via Jenkins pipelines.",
+      technologies: ["Python", "Django", "MongoDB", "Docker", "Jenkins"],
+      github: "https://github.com/Vairochan/bookstore-api",
       live: null
     },
     {
-      title: "Weather Data Analyzer",
-      description: "Data pipeline for processing and analyzing weather data from multiple sources.",
-      technologies: ["Python", "Pandas", "Flask", "MongoDB"],
-      github: "https://github.com/Vairochan/weather-analyzer",
+      title: "Viscus - Instagram Clone",
+      description: "A full-stack clone of Instagram with features like posting, commenting, following, and real-time updates.",
+      technologies: ["Flutter", "Firebase Auth", "Firestore", "Cloud Storage"],
+      github: "https://github.com/Vairochan/viscus",
+      live: null
+    },
+    {
+      title: "GenAI Chat Assistant",
+      description: "A private GenAI-powered assistant using Ollama to run open-source LLMs like LLaMA and GEMMA locally. Integrated with LlamaIndex for RAG and built with Streamlit for a responsive UI.",
+      technologies: ["Python", "Ollama", "LLaMA", "GEMMA", "LlamaIndex", "LangChain", "Streamlit"],
+      github: "https://github.com/Vairochan/genai-chat-assistant",
       live: null
     }
   ];

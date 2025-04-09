@@ -1,8 +1,11 @@
 import React from 'react';
 import profileImage from '../assets/profile.png';
 import resume from '../assets/resume.pdf';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const Hero = () => {
+  useRevealOnScroll();
+  
   return (
     <section id="home" className="hero">
       <div className="container hero-content">
