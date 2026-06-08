@@ -3,9 +3,17 @@ import React from 'react';
 const Experience = () => {
   const experiences = [
     {
+      position: "Solutions Engineer",
+      company: "PhonePe",
+      period: "Sept 2025 - Present",
+      description: [
+        "...."
+      ]
+    },
+    {
       position: "Software Developer",
       company: "Betsol Pvt Ltd",
-      period: "June 2022 - Present",
+      period: "June 2022 - Sept 2025",
       description: [
         "Developed and deployed a scalable monitoring infrastructure using Bash and Ansible for Linux-based products and network devices.",
         "Automated Linux system administration tasks with advanced Bash scripting, ensuring consistent monitoring setups.",

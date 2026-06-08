@@ -10,6 +10,20 @@ const Projects = () => {
       live: null
     },
     {
+      title: "Enterprise Linux Observability & Security Platform",
+      description: "A comprehensive observability and security platform combining eBPF-based kernel tracing, process monitoring, and real-time threat detection. Provides centralized visibility into system performance, network activity, and security events through interactive dashboards with automated alerting.",
+      technologies: ["eBPF", "Prometheus", "Grafana", "OpenTelemetry", "Python", "Bash"],
+      github: "https://github.com/Vairochan/linux-observability-platform",
+      live: null
+    },
+    {
+      title: "eBPF Network Tracer",
+      description: "A kernel-level network tracing tool using eBPF to capture and analyze network packets, TCP connections, and system calls in real time with minimal overhead.",
+      technologies: ["eBPF", "BPFTrace", "TCP/IP", "ProcFS", "Linux", "Bash", "System Monitoring", "Network Observability"],
+      github: "https://github.com/Vairochan/ebpf-network-tracer",
+      live: null
+    },
+    {
       title: "Book Store API",
       description: "A backend API for an online bookstore built with Django and MongoDB. Features include user authentication, catalog management, and order processing. CI/CD handled via Jenkins pipelines.",
       technologies: ["Python", "Django", "MongoDB", "Docker", "Jenkins"],

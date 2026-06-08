@@ -14,8 +14,9 @@ const About = () => {
           </p>
           <p>
           I specialize in backend development, API design, and automation using tools like Django, FastAPI, and Bash scripting. 
-          My expertise extends to building robust monitoring systems, CI/CD pipelines, and real-time data collection mechanisms 
-          for large-scale Linux environments. I thrive in dynamic, agile teams, consistently delivering high-quality, reliable software.
+          My expertise extends to building robust monitoring and observability systems with Prometheus, Grafana, and eBPF-based 
+          kernel tracing for real-time threat detection and performance analysis in large-scale Linux environments. 
+          I thrive in dynamic, agile teams, consistently delivering high-quality, reliable software.
           </p>
           <p>
           In addition to backend development, I’ve developed mobile applications using frameworks like Flutter and React, focusing on 

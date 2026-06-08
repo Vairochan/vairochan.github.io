@@ -15,12 +15,16 @@ const Skills = () => {
       skills: ["MongoDB", "SQL Server", "MySQL", "PostgreSQL", "SQLite"]
     },
     {
-      title: "DevOps & Tools",
-      skills: ["Git", "Docker", "CI/CD", "Linux", "Bash", "VCenter", "Ansible", "Jenkins", "Zabbix", "Postman"]
+      title: "DevOps & Automation",
+      skills: ["Git", "Docker", "CI/CD", "Linux", "Bash", "VCenter", "Ansible", "Jenkins", "Postman"]
+    },
+    {
+      title: "Monitoring & Observability",
+      skills: ["Prometheus", "Grafana", "eBPF", "BPFTrace", "OpenTelemetry", "Zabbix", "System Monitoring", "Network Observability", "Threat Detection"]
     },
     {
       title: "Networking & Protocols",
-      skills: ["HTTPS", "TCP/UDP", "SNMP", "SMTP", "WebSockets", "JSON", "XML", "YAML"]
+      skills: ["HTTPS", "TCP/IP", "SNMP", "SMTP", "WebSockets", "JSON", "XML", "YAML"]
     }
   ];
 
